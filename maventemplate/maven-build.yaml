@@ -9,7 +9,7 @@ parameters:
     displayName: Test results file
   - name: specificversion
     type: string
-    default: ""
+    default: ''
     displayName: specificversion of Maven
   - name: artifactpath
     type: string
@@ -24,7 +24,7 @@ steps:
       goals: ${{ parameters.goal }}
       publishJUnitResults: true
       testResultsFiles: ${{ parameters.testresultfile }}
-    condition: eq('${{ parameters.specificversion }}',"")
+    condition: eq('${{ parameters.specificversion }}','')
 
   - task: Maven@4
     displayName: mavenbuild
@@ -34,7 +34,7 @@ steps:
       jdkVersionOption: ${{ parameters.specificversion }}
       publishJUnitResults: true
       testResultsFiles: ${{ parameters.testresultfile }}
-    condition: ne('${{ parameters.specificversion }}',"") 
+    condition: ne('${{ parameters.specificversion }}','') 
 
   - task: CopyFiles@2
     inputs:
