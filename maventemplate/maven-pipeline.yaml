@@ -1,0 +1,20 @@
+---
+pool: Default
+
+variables:
+  - group: generic_java_maven
+
+resources:
+  repositories:
+    - repository: reusableprivatetemplate
+      type: git
+      name: azuredevopstemplates.git
+      ref: 'refs/heads/main'
+      
+steps:
+  - template: maventemplate/maven-build.yaml@reusableprivatetemplate
+    parameters:
+      goal: $(goal)
+      testresultfile: $(testresultfile)
+      specificversion: ""
+      artifactpath: "**/spring-petclinic*.jar"
