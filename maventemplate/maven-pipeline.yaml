@@ -17,4 +17,4 @@ steps:
       goal: $(goal)
       testresultfile: $(testresultfile)
       specificversion: ""
-      artifactpath: "**/spring-petclinic*.jar"
+      artifactpath: $(artifactpath)
