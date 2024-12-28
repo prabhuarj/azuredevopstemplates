@@ -1,5 +1,4 @@
 ---
-pool: Default
 
 variables:
   - group: generic_java_maven
